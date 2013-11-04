@@ -50,7 +50,7 @@ public class HelloTest {
 	}
 
 	/**
-	 * 添加日记
+	 * 添加笔记
 	 */
 	//@Test
 	public void addNote(){
@@ -72,10 +72,13 @@ public class HelloTest {
 		System.out.println("Hibernate Session is Open: " + session.isConnected());
 	}
 	
+	/**
+	 * 查看所有笔记
+	 */
 	@Test
 	public void showNote() {
 		session.beginTransaction();
-		
+
 		@SuppressWarnings("unchecked")
 		List<Note> notes = session.createQuery("from Note as n where n.user=:user").setLong("user", 1).list();
 		session.getTransaction().commit();
